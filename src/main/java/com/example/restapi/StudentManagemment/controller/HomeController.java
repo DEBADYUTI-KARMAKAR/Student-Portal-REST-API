@@ -24,9 +24,9 @@ public class HomeController {
         return student;
     }
 
-    @GetMapping("/{id}")
-    public String pathVariable(@PathVariable String id){
+    @GetMapping("/students/{id}/{crs}")
+    public String pathVariable(@PathVariable String id,@PathVariable("crs") String course){
 
-        return "Your id is :"+id;
+        return "Your id is :"+id+"Course"+course;
     }
 }
