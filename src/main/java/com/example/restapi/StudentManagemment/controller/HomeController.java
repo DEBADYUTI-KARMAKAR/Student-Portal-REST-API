@@ -3,9 +3,7 @@ package com.example.restapi.StudentManagemment.controller;
 
 import com.example.restapi.StudentManagemment.model.Student;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class HomeController {
@@ -15,7 +13,8 @@ public class HomeController {
         return "Welcome to home page!";
     }
 
-    @RequestMapping("/students")
+    @RequestMapping(value="/students",method = RequestMethod.GET)
+    @GetMapping("/students")
     public Student student(){
         Student student = new Student();
         student.setId("1");
@@ -23,5 +22,11 @@ public class HomeController {
         student.setEmailId("demo.gmail.com");
 
         return student;
+    }
+
+    @GetMapping("/{id}")
+    public String pathVariable(@PathVariable String id){
+
+        return "Your id is :"+id;
     }
 }
