@@ -24,9 +24,18 @@ public class HomeController {
         return student;
     }
 
+    // when data is mendetory then we can use Path variable
+
     @GetMapping("/students/{id}/{crs}")
     public String pathVariable(@PathVariable String id,@PathVariable("crs") String course){
 
         return "Your id is :"+id+"Course"+course;
+    }
+
+
+    // when daTA IS NOT MANDETORY THEN WE CAN USE RequestParam
+    @GetMapping("/requestparam")
+    public String requestParam(@RequestParam String name,@RequestParam(name = "course",required = false,defaultValue="") String course){
+        return "Name is"+name+"Course is :"+course;
     }
 }
