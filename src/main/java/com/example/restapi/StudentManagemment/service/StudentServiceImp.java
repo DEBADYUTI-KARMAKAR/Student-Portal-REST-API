@@ -15,9 +15,21 @@ public class StudentServiceImp implements StudentService {
     @Override
     public Student save(Student student) {
         if(student.getStudentId()== null || student.getEmailId().isEmpty()){
-            student.setEmailId(UUID.randomUUID().toString());
+            student.setStudentId(UUID.randomUUID().toString());
         }
         students.add(student);
         return student;
     }
+
+    @Override
+    public List<Student> getAllStudents() {
+        return students;
+    }
+
+    @Override
+    public Student getStudentById(String id) {
+        return students.stream().filter(student -> student.getStudentId().equalsIgnoreCase(id)).findFirst().get();
+    }
+
+
 }
