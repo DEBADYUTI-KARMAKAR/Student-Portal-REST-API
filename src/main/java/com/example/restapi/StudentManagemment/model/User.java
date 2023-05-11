@@ -1,6 +1,6 @@
 package com.example.restapi.StudentManagemment.model;
 
-public class Student {
+public class User {
     private String id;
     private String name;
     private String emailId;

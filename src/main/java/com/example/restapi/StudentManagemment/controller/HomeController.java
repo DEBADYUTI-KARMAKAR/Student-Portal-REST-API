@@ -1,8 +1,7 @@
 package com.example.restapi.StudentManagemment.controller;
 
 
-import com.example.restapi.StudentManagemment.model.Student;
-import org.springframework.stereotype.Controller;
+import com.example.restapi.StudentManagemment.model.User;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -13,20 +12,20 @@ public class HomeController {
         return "Welcome to home page!";
     }
 
-    @RequestMapping(value="/students",method = RequestMethod.GET)
-    @GetMapping("/students")
-    public Student student(){
-        Student student = new Student();
-        student.setId("1");
-        student.setName("Saheb");
-        student.setEmailId("demo.gmail.com");
+    @RequestMapping(value="/user",method = RequestMethod.GET)
+    @GetMapping("/user")
+    public User student(){
+        User user = new User();
+        user.setId("1");
+        user.setName("Saheb");
+        user.setEmailId("demo.gmail.com");
 
-        return student;
+        return user;
     }
 
     // when data is mendetory then we can use Path variable
 
-    @GetMapping("/students/{id}/{crs}")
+    @GetMapping("/user/{id}/{crs}")
     public String pathVariable(@PathVariable String id,@PathVariable("crs") String course){
 
         return "Your id is :"+id+"Course"+course;
