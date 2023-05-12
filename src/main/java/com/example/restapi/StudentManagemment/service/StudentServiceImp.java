@@ -50,5 +50,19 @@ public class StudentServiceImp implements StudentService {
         return "Student deleted id is:"+id;
     }
 
+    @Override
+    public Student update(Student student, String id) {
+        for(int i=0;i<students.size();i++){
+            Student s = students.get(i);
+            if(s.getStudentId().equals(id)){
+                student.setStudentId(id);
+                students.set(i,student);
+
+            }
+
+        }
+        return student;
+    }
+
 
 }

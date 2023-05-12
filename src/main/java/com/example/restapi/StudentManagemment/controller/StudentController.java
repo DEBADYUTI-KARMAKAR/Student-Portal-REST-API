@@ -17,6 +17,7 @@ public class StudentController {
 
     @PostMapping
     public Student save(@RequestBody Student student){
+
         return studentService.save(student);
     }
 
@@ -34,6 +35,12 @@ public class StudentController {
     @DeleteMapping("/{id}")
     public String deleteStudentById(@PathVariable String id){
         return studentService.deleteStudentById(id);
+    }
+
+
+    @PutMapping("/{id}")
+    public Student update(@RequestBody Student student, @PathVariable String id){
+       return studentService.update(student,id);
     }
 
 }
