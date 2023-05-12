@@ -38,5 +38,17 @@ public class StudentServiceImp implements StudentService {
                 ;
     }
 
+    @Override
+    public String deleteStudentById(String id) {
+        Student student = students
+                .stream()
+                .filter(stu -> stu.getStudentId().equalsIgnoreCase(id))
+                .findFirst()
+                .get();
+
+        students.remove(student);
+        return "Student deleted id is:"+id;
+    }
+
 
 }
