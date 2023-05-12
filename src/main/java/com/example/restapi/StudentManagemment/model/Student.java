@@ -1,5 +1,9 @@
 package com.example.restapi.StudentManagemment.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+@JsonIgnoreProperties({"depertment","emailId"})
 public class Student {
 
     private String studentId;
@@ -36,10 +40,12 @@ public class Student {
         return emailId;
     }
 
+    // @JsonIgnore
     public void setEmailId(String emailId) {
         this.emailId = emailId;
     }
 
+   // @JsonIgnore
     public String getDepertment() {
         return depertment;
     }
