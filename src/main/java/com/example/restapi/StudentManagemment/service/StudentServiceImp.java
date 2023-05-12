@@ -1,6 +1,7 @@
 package com.example.restapi.StudentManagemment.service;
 
 
+import com.example.restapi.StudentManagemment.exception.StudentNotFoundException;
 import com.example.restapi.StudentManagemment.model.Student;
 import org.springframework.stereotype.Service;
 
@@ -28,7 +29,13 @@ public class StudentServiceImp implements StudentService {
 
     @Override
     public Student getStudentById(String id) {
-        return students.stream().filter(student -> student.getStudentId().equalsIgnoreCase(id)).findFirst().get();
+        return students
+                .stream().
+                filter(student -> student.getStudentId().equalsIgnoreCase(id))
+                .findFirst()
+                .orElseThrow(() -> new StudentNotFoundException((""+"Student not found with Id"+ id)))
+
+                ;
     }
 
 
