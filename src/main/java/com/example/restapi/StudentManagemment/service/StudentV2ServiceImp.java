@@ -66,7 +66,10 @@ public class StudentV2ServiceImp implements  StudentService {
 
     @Override
     public String deleteStudentById(String id) {
-        return null;
+        
+        studentRepository.deleteById(id);
+        
+        return "Student deleted id is:"+id;
     }
 
     @Override
