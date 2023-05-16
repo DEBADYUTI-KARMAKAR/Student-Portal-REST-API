@@ -1,16 +1,17 @@
-package com.example.restapi.StudentManagemment.model;
+package com.example.restapi.StudentManagemment.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-//@JsonIgnoreProperties({"depertment","emailId"})
-public class Student {
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 
+@Entity
+public class StudentEntity {
+
+    @Id
     private String studentId;
     private String firstName;
     private String lastName;
     private String emailId;
-    private String depertment;
 
     public String getStudentId() {
         return studentId;
@@ -40,17 +41,7 @@ public class Student {
         return emailId;
     }
 
-    // @JsonIgnore
     public void setEmailId(String emailId) {
         this.emailId = emailId;
-    }
-
-   // @JsonIgnore
-    public String getDepertment() {
-        return depertment;
-    }
-
-    public void setDepertment(String depertment) {
-        this.depertment = depertment;
     }
 }
