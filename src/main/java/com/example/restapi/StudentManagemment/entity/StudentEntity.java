@@ -12,6 +12,9 @@ public class StudentEntity {
     private String firstName;
     private String lastName;
     private String emailId;
+    private String department;
+
+
 
     public String getStudentId() {
         return studentId;
@@ -43,5 +46,12 @@ public class StudentEntity {
 
     public void setEmailId(String emailId) {
         this.emailId = emailId;
+    }
+    public String getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(String department) {
+        this.department = department;
     }
 }

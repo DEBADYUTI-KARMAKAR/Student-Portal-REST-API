@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 
 @Service
@@ -40,12 +41,27 @@ public class StudentV2ServiceImp implements  StudentService {
 
     @Override
     public List<Student> getAllStudents() {
-        return null;
+        List<StudentEntity> studentEntityList = studentRepository.findAll();
+
+        List<Student> students = studentEntityList
+                .stream()
+                .map(studentEntity -> {
+                    Student student = new Student();
+                    BeanUtils.copyProperties(studentEntity,student);
+                    return student;
+                })
+                .collect(Collectors.toList());
+        return students;
+
     }
 
     @Override
     public Student getStudentById(String id) {
-        return null;
+
+        StudentEntity studentEntity = studentRepository.findById(id).get();
+        Student student =new Student();
+        BeanUtils.copyProperties(studentEntity,student);
+        return student;
     }
 
     @Override

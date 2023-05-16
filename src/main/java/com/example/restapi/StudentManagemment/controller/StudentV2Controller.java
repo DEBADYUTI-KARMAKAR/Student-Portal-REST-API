@@ -24,5 +24,27 @@ public class StudentV2Controller {
         return studentService.save(student);
     }
 
+    @GetMapping
+    public List<Student> getAllStudents(){
+
+        return studentService.getAllStudents();
+    }
+
+    @GetMapping("/{id}")
+    public Student getStudentById(@PathVariable String id){
+        return studentService.getStudentById(id);
+    }
+
+    @DeleteMapping("/{id}")
+    public String deleteStudentById(@PathVariable String id){
+        return studentService.deleteStudentById(id);
+    }
+
+
+    @PutMapping("/{id}")
+    public Student update(@RequestBody Student student, @PathVariable String id){
+        return studentService.update(student,id);
+    }
+
 
 }
