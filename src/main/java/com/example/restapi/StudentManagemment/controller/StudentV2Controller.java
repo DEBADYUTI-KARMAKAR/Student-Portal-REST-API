@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/v1/students")
-public class StudentController {
+@RequestMapping("/v2/students")
+public class StudentV2Controller {
 
     @Autowired
     private StudentService studentService;
@@ -40,7 +40,6 @@ public class StudentController {
 
     @PutMapping("/{id}")
     public Student update(@RequestBody Student student, @PathVariable String id){
-       return studentService.update(student,id);
+        return studentService.update(student,id);
     }
-
 }
