@@ -33,8 +33,6 @@ public class StudentV2ServiceImp implements  StudentService {
         BeanUtils.copyProperties(student,entity);
 
         studentRepository.save(entity);
-
-
         return student;
     }
 
@@ -52,7 +50,6 @@ public class StudentV2ServiceImp implements  StudentService {
                 })
                 .collect(Collectors.toList());
         return students;
-
     }
 
     @Override
@@ -74,6 +71,9 @@ public class StudentV2ServiceImp implements  StudentService {
 
     @Override
     public Student update(Student student, String id) {
-        return null;
+        StudentEntity entity = new StudentEntity();
+        BeanUtils.copyProperties(student,entity);
+        studentRepository.saveAndFlush(entity);
+        return student;
     }
 }

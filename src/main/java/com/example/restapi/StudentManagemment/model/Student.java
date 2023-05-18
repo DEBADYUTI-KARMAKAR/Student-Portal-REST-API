@@ -1,16 +1,17 @@
 package com.example.restapi.StudentManagemment.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-//@JsonIgnoreProperties({"depertment","emailId"})
+
 public class Student {
 
     private String studentId;
     private String firstName;
     private String lastName;
     private String emailId;
-    private String depertment;
+    private String stream;
+
 
     public String getStudentId() {
         return studentId;
@@ -40,17 +41,19 @@ public class Student {
         return emailId;
     }
 
-    // @JsonIgnore
+
     public void setEmailId(String emailId) {
         this.emailId = emailId;
     }
 
-   // @JsonIgnore
-    public String getDepertment() {
-        return depertment;
+
+
+
+    public String getStream() {
+        return stream;
     }
 
-    public void setDepertment(String depertment) {
-        this.depertment = depertment;
+    public void setStream(String stream) {
+        this.stream = stream;
     }
 }

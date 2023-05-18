@@ -12,7 +12,8 @@ public class StudentEntity {
     private String firstName;
     private String lastName;
     private String emailId;
-    private String department;
+    private String stream;
+
 
 
 
@@ -47,11 +48,13 @@ public class StudentEntity {
     public void setEmailId(String emailId) {
         this.emailId = emailId;
     }
-    public String getDepartment() {
-        return department;
+
+
+    public String getStream() {
+        return stream;
     }
 
-    public void setDepartment(String department) {
-        this.department = department;
+    public void setStream(String stream) {
+        this.stream = stream;
     }
 }
